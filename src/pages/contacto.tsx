@@ -129,7 +129,7 @@ export default function ContactPage() {
             </ul>
 
             <div className="space-y-2 text-sm text-gray-700 pt-4">
-              <p><strong>Email:</strong> isynchn@gmail.com</p>
+              <p><strong>Email:</strong> desarrollo@solteci.com</p>
               <p><strong>Teléfono:</strong> +504 9595-5397</p>
             </div>
 
