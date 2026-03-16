@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Columna 1: Logo y Contacto */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 p-1 bg-[#1a3d59] rounded-xl flex items-center justify-center shadow-lg shadow-[#1a3d59]/20">
+              <div className="h-12 w-12 p-1 bg-[#1a3d59] rounded-xl flex items-center justify-center">
                 <Image
                   src="/iSync_logo_white.svg"
                   alt="Logo iSync"
@@ -26,7 +26,6 @@ export default function Footer() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">iSync</h2>
-                <p className="text-xs text-gray-500 tracking-wider">SOLUTIONS</p>
               </div>
             </div>
 
@@ -157,9 +156,15 @@ export default function Footer() {
         {/* Disponibilidad */}
         <div className="mt-10 pt-8 border-t border-gray-100">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <CheckCircle size={20} weight="fill" className="text-green-500" />
-              <span>Disponible en Android</span>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <CheckCircle size={20} weight="fill" className="text-green-500" />
+                <span>Android</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle size={20} weight="fill" className="text-green-500" />
+                <span>Web</span>
+              </div>
             </div>
 
             <div className="text-sm text-gray-400">
