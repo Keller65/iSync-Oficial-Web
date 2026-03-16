@@ -37,8 +37,6 @@ export default function Home() {
 
       <Navbar />
       <MainScreen />
-      {/* <AnimatedBeamDemo /> */}
-      {/* <Notifications /> */}
       <Sistemas />
       <Beneficios />
       <Grid />
