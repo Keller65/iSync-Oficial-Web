@@ -55,11 +55,11 @@ export default function ContactPage() {
     <>
       <Navbar />
       <Head>
-        <title>Contacto | iSync – Integración con SAP Business One</title>
+        <title>Contacto | iSync – Integración directa con SAP Business One</title>
 
         <meta
           name="description"
-          content="Contacta con iSync y conecta tu empresa con SAP Business One o CONTPAQi. Automatiza pedidos, ventas y cobranzas desde el móvil."
+          content="Solicita acceso a iSync y conecta tu empresa directamente con SAP Business One. Automatiza ventas, cotizaciones y cobros desde móvil y web con sincronización en tiempo real. Reduce errores operacionales y acelera tu ciclo de ventas."
         />
 
         <meta

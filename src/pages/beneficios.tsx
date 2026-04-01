@@ -83,8 +83,8 @@ export default function Beneficios() {
 	return (
 		<>
 			<Head>
-				<title>Beneficios de iSync | App móvil integrada con SAP Business One y ERP</title>
-				<meta name="description" content="Conoce los beneficios de iSync: una app móvil integrada con SAP Business One y ERP que optimiza ventas, inventarios y la gestión de clientes en tiempo real." />
+				<title>Beneficios de iSync | Optimiza ventas y cotizaciones con SAP Business One</title>
+				<meta name="description" content="Descubre los beneficios de iSync: app móvil integrada directamente con SAP Business One que optimiza cotizaciones, ventas y cobranzas. Reduce errores operacionales, acelera procesos y sincroniza datos en tiempo real." />
 				<meta name="keywords" content="iSync, SAP Business One, app móvil ERP, integración SAP, gestión de ventas, inventarios en tiempo real, fuerza de ventas" />
 				<link rel="canonical" href="https://isynchn.com/beneficios" />
 				<meta property="og:title" content="Beneficios de iSync" />

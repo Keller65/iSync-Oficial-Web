@@ -45,7 +45,7 @@ function TerminosYCondiciones() {
     <>
       <Head>
         <title>Términos y Condiciones — iSync</title>
-        <meta name="description" content="Términos y condiciones legales de iSync Web. Información sobre licencia, servicios, seguridad y privacidad de datos." />
+        <meta name="description" content="Términos y condiciones legales de iSync. Conoce los términos de servicio, políticas de seguridad, privacidad de datos y acuerdos de licencia para usar iSync integrado con SAP Business One." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://isynchn.com/terminos-y-condiciones" />
       </Head>

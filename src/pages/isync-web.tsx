@@ -38,9 +38,9 @@ const features = [
   },
   {
     icon: <MapPin size={28} weight="regular" className="text-white" />,
-    titulo: "Rutas y geolocalización",
+    titulo: "Gestión de direcciones de clientes",
     descripcion:
-      "Monitorea la ubicación de tu fuerza de ventas y visualiza rutas asignadas directamente desde el portal web.",
+      "Actualiza y crea direcciones de clientes directamente desde el portal web. Mantén tu base de datos de ubicaciones siempre actualizada y precisa.",
   },
   {
     icon: <Users size={28} weight="regular" className="text-white" />,
@@ -72,10 +72,10 @@ export default function ISyncWebPage() {
   return (
     <>
       <Head>
-        <title>iSync Web | Gestión empresarial integrada con SAP Business One</title>
+        <title>iSync Web | Portal integrado con SAP Business One para ventas y cotizaciones</title>
         <meta
           name="description"
-          content="iSync Web es el portal web que complementa la app móvil de iSync, integrando pedidos, cobranza, dashboard y sincronización en tiempo real con SAP Business One."
+          content="iSync Web es el portal web integrado directamente con SAP Business One para gestionar cotizaciones, pedidos, cobranza y ventas. Sincroniza datos en tiempo real, reduce errores y acelera operaciones comerciales."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://isynchn.com/isync-web" />

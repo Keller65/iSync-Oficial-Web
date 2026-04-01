@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>iSync | App móvil para SAP</title>
-        <meta name="description" content="Optimiza tu negocio en Honduras con iSync, App móvil para SAP Business One: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
+        <title>iSync | App móvil y web integrada con SAP Business One</title>
+        <meta name="description" content="iSync es una solución móvil y web integrada directamente con SAP Business One que optimiza ventas, cotizaciones y cobros. Reduce errores, acelera procesos y sincroniza datos en tiempo real. Disponible para Honduras y América Central." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
