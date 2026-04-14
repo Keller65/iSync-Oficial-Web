@@ -14,29 +14,34 @@ function MainScreen() {
   const appY = useTransform(scrollYProgress, [0, 1], [0, 70])
 
   return (
-    <main ref={ref} className="h-[100vh] flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-28 sm:pt-36 bg-[#1a3d59]">
+    <main ref={ref} className="h-[100vh] flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-28 sm:pt-36 bg-gradient-to-b from-[#00111E] to-[#1A3D59]">
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.18)_0,rgba(0,163,255,0)_60%,rgba(0,163,255,0)_100%)]" />
+      <div className='w-full h-[260px] absolute bottom-0 bg-gradient-to-b blur-xl from-[#00bfff00] to-[#29677e]'></div>
+      <Image
+        src="/assets/images/Ring.svg"
+        alt="iSync Logo"
+        width={1080}
+        height={720}
+        priority
+        quality={100}
+        className="absolute bottom-[-700px] scale-140 w-screen h-fit pointer-events-none"
+      />
 
       {/* Hero content */}
-      <div className="flex flex-col items-center gap-5 px-6 text-center w-full max-w-2xl mx-auto">
-
-        {/* Headline */}
+      <div className="flex flex-col items-center gap-6 px-6 text-center w-full max-w-3xl mx-auto">
         <BlurFade delay={0.2} inView>
-          <h1 className="text-2xl mb-[450px] sm:text-4xl lg:text-5xl font-bold tracking-[-3px] leading-12 text-white">
-            Lo mejor de iSync ahora, <br className="hidden sm:block" /> en la web.
+          <h1 className="text-2xl mb-[400px] sm:text-4xl lg:text-5xl font-bold tracking-[-1.5px] leading-tight text-white">
+            De lo complejo a lo simple,<br className="hidden sm:block" />iSync + SAP Business One
           </h1>
         </BlurFade>
 
-        {/* Subtitle */}
         <BlurFade delay={0.3} inView>
-          <p className="text-sm sm:text-base text-white/60 max-w-sm leading-relaxed">
-            Gestiona pedidos, cobranza y analíticas integradas con&nbsp;
-            <span className="font-medium text-white/90">SAP Business One</span>,
-            sincronizado en tiempo real desde cualquier lugar.
+          <p className="text-sm sm:text-base text-white/60 max-w-md leading-relaxed">
+            Sincroniza pedidos, cotizaciones, cobranza y datos de clientes en tiempo real con&nbsp;
+            <span className="font-medium text-white/90">SAP Business One</span>. Reduce errores, acelera operaciones y optimiza tu equipo comercial.
           </p>
         </BlurFade>
 
-        {/* CTA */}
         <BlurFade delay={0.4} inView>
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-1">
             <Link
@@ -55,7 +60,6 @@ function MainScreen() {
         </BlurFade>
       </div>
 
-      {/* Web screenshot — parallax más lento */}
       <motion.div
         style={{ y: webY }}
         className="aspect-auto absolute -bottom-12 -ml-40 pointer-events-none"
@@ -70,7 +74,6 @@ function MainScreen() {
         />
       </motion.div>
 
-      {/* Mobile screenshot — parallax más rápido */}
       <motion.div
         style={{ y: appY }}
         className="absolute right-36 bottom-[-290px] overflow-hidden pointer-events-none"

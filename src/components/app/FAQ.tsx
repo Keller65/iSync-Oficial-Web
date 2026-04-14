@@ -1,7 +1,9 @@
-import { Nata_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import React, { useRef, useState, useEffect } from 'react'
+import Link from 'next/link'
+import { BlurFade } from "@/components/ui/blur-fade"
 
-const nataSans = Nata_Sans({ subsets: ['latin'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700'] })
 
 interface FAQItem {
   question: string
@@ -14,10 +16,11 @@ interface FAQItem {
 // ------------------------------------------------
 interface FAQCardProps {
   item: FAQItem
+  index: number
 }
 
 // Mantenemos esta lógica interna para aislar la animación de cada tarjeta.
-const FAQCard: React.FC<FAQCardProps> = ({ item }) => {
+const FAQCard: React.FC<FAQCardProps> = ({ item, index }) => {
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLElement>(null)
 
@@ -51,60 +54,50 @@ const FAQCard: React.FC<FAQCardProps> = ({ item }) => {
   }, [])
 
   return (
-    <article
-      ref={cardRef}
-      className={`
-        group relative flex flex-col
-        rounded-2xl border border-slate-200/80 bg-white/80
-        p-5 md:p-6
-        overflow-hidden
-        transition-all duration-700 ease-out 
-        // Clases de animación:
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} 
-      `}
-    >
-      {/* Categoría / chip */}
-      {item.category && (
-        <span className="inline-flex w-fit tracking-[-0.2px] items-center rounded-full bg-slate-100 text-[10px] font-medium text-slate-500 px-2 py-0.5 mb-3 uppercase">
-          {item.category}
-        </span>
-      )}
-
-      {/* Pregunta */}
-      <h3
-        className="
-          text-sm md:text-base font-semibold text-slate-900 mb-2
-          leading-snug
-        "
+    <BlurFade delay={0.05 * (index % 12)} inView>
+      <article
+        ref={cardRef}
+        className={`
+          group relative flex flex-col
+          rounded-3xl border border-gray-100 bg-white
+          p-6 hover:shadow-lg hover:border-gray-200
+          overflow-hidden
+          transition-all duration-500 ease-out
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+        `}
       >
-        {item.question}
-      </h3>
-
-      {/* Respuesta */}
-      <p
-        className="
-          text-sm text-slate-600 leading-relaxed
-          transition-all duration-300 ease-out
-          group-hover:text-slate-700
-        "
-      >
-        {item.answer}
-      </p>
-
-      {/* Hint de interacción */}
-      <div
-        className="
-          mt-3 flex items-center justify-between text-[11px] text-slate-400
-        "
-      >
-        <span className="inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Habla con un asesor
-          <span className="text-slate-300 group-hover:translate-x-0.5 transition-transform duration-300">
-            →
+        {/* Categoría / chip uniforme */}
+        {item.category && (
+          <span className="inline-flex w-fit items-center rounded-full text-xs font-semibold px-3 py-1.5 mb-4 bg-gray-100 text-gray-600 uppercase tracking-wide">
+            {item.category}
           </span>
-        </span>
-      </div>
-    </article>
+        )}
+
+        {/* Pregunta */}
+        <h3
+          className="
+            text-base font-bold text-gray-900 mb-3
+            leading-snug group-hover:text-[#1a3d59]
+            transition-colors duration-300
+          "
+        >
+          {item.question}
+        </h3>
+
+        {/* Respuesta */}
+        <p
+          className="
+            text-sm text-gray-600 leading-relaxed flex-grow
+            transition-all duration-300 ease-out
+          "
+        >
+          {item.answer}
+        </p>
+
+        {/* Decoración de hover */}
+        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#1a3d59]/5 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </article>
+    </BlurFade>
   )
 }
 
@@ -236,11 +229,6 @@ function FAQ() {
       category: "Soporte"
     },
     {
-      question: "¿Cómo manejan la facturación electrónica en Honduras?",
-      answer: "iSync se adapta a los requisitos fiscales locales, incluyendo facturación electrónica según normativa vigente y estructuras de impuestos configurables de acuerdo con lo que exige la autoridad tributaria.",
-      category: "Facturación"
-    },
-    {
       question: "¿Pueden personalizar el sistema según nuestras necesidades específicas?",
       answer: "Sí. iSync es flexible: se pueden ajustar flujos, permisos, campos personalizados y reportes. Nuestro equipo evalúa contigo los requerimientos para adaptar el sistema a tus procesos.",
       category: "Personalización"
@@ -250,38 +238,62 @@ function FAQ() {
   return (
     <section
       className={`
-        relative py-20 px-4
-        bg-gradient-to-b from-slate-50 via-white to-slate-50
-        ${nataSans.className}
+        relative py-20 px-6 bg-white ${poppins.className}
       `}
     >
-      {/* Glow de fondo */}
+      {/* Glow de fondo decorativo */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-10 h-40 bg-gradient-to-r from-sky-100/40 via-transparent to-indigo-100/40 blur-3xl opacity-70" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/10 rounded-full blur-3xl opacity-40" />
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-14 space-y-4">
-          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-500 shadow-sm backdrop-blur-sm">
-            FAQ · iSync
-          </span>
+        {/* Header mejorado */}
+        <div className="text-center mb-16 space-y-4">
+          <BlurFade delay={0.1} inView>
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#1a3d59]">
+              ❓ Preguntas y Respuestas
+            </span>
+          </BlurFade>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-            Preguntas frecuentes
-          </h2>
+          <BlurFade delay={0.2} inView>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+              Preguntas frecuentes sobre iSync
+            </h2>
+          </BlurFade>
 
-          <p className="max-w-2xl mx-auto text-sm md:text-base text-slate-500">
-            Respuestas claras a las preguntas más comunes sobre implementación, uso diario, ventas, rutas, cobros y seguridad en iSync.
-          </p>
+          <BlurFade delay={0.3} inView>
+            <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
+              Encuentra respuestas claras sobre implementación, ventas, cotizaciones, cobros, seguridad y todo lo que necesitas saber para optimizar tu negocio con SAP Business One.
+            </p>
+          </BlurFade>
         </div>
 
         {/* Grid de tarjetas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Renderiza las tarjetas usando el subcomponente interno */}
           {faqData.map((item, index) => (
-            <FAQCard key={index} item={item} />
+            <FAQCard key={index} item={item} index={index} />
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-20 bg-gradient-to-br from-[#1a3d59] to-[#2a5a7a] rounded-3xl p-10 sm:p-12 text-center">
+          <BlurFade delay={0.5} inView>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              ¿No encontraste tu respuesta?
+            </h3>
+            <p className="text-white/80 max-w-xl mx-auto mb-8">
+              Nuestro equipo está listo para ayudarte. Contacta con nosotros y resolveremos todas tus dudas sobre cómo iSync puede optimizar tus operaciones comerciales.
+            </p>
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 bg-white text-[#1a3d59] px-8 py-3.5 rounded-full text-base font-semibold hover:bg-white/90 transition-colors duration-200"
+            >
+              Contacta con nuestro equipo
+              <span>→</span>
+            </Link>
+          </BlurFade>
         </div>
       </div>
     </section>
