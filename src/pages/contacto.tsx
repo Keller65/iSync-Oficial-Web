@@ -24,6 +24,9 @@ const contactSchema = z.object({
   licenses: z.number().min(1).optional(),
   contractType: z.enum(['Mensual', 'Anual', 'Permanente']),
   message: z.string().min(10, 'El mensaje es muy corto'),
+  location: z.string().min(3, 'Ubicación requerida'),
+  server: z.enum(['Local', 'En la nube']),
+  database: z.enum(['Hanna', 'SQL']),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -92,7 +95,7 @@ export default function ContactPage() {
         <meta name="twitter:image" content="https://isync.com/og-contact.png" />
       </Head>
 
-      <div className="min-h-screen flex justify-center px-6 py-16 bg-white p-4">
+      <div className="min-h-screen flex justify-center px-6 py-16 p-4">
         <section className="w-full max-w-7xl mt-6 bg-white rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-12 p-10">
 
           {/* ---------------------- */}
@@ -175,8 +178,8 @@ export default function ContactPage() {
                   <input {...register('companyName')} />
                 </Input>
 
-                <Input label="RTN" error={errors.rtn?.message}>
-                  <input {...register('rtn')} />
+                <Input label="Ubicacion" error={errors.location?.message}>
+                  <input {...register('location')} />
                 </Input>
               </div>
             </div>
@@ -192,8 +195,20 @@ export default function ContactPage() {
                 <option value="CONTPAQI">CONTPAQi</option>
               </Select>
 
+              <div className="grid md:grid-cols-2 gap-6">
+                <Select label="Base de Datos" {...register('database')}>
+                  <option value="SAP B1">Hanna</option>
+                  <option value="CONTPAQI">SQL</option>
+                </Select>
+
+                <Select label="Servidor" {...register('server')}>
+                  <option value="SAP B1">Local</option>
+                  <option value="CONTPAQI">En la nube</option>
+                </Select>
+              </div>
+
               <Input
-                label="Cantidad de Empleados"
+                label="Cantidad de Vendedores"
                 error={errors.licenses?.message}
               >
                 <input type="number" {...register('licenses', { valueAsNumber: true })} />

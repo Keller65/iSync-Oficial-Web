@@ -37,7 +37,6 @@ export default function Home() {
 
       <Navbar />
       <MainScreen />
-      <Sistemas />
       <Beneficios />
       <Grid />
       <FAQ />

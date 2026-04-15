@@ -45,7 +45,7 @@ function Navbar() {
               height={40}
               quality={100}
               priority
-              className="w-10 h-10 transition-all duration-300"
+              className="w-8 h-8 transition-all duration-300"
             />
           </Link>
 

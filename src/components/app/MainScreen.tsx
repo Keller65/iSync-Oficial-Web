@@ -14,8 +14,8 @@ function MainScreen() {
   const appY = useTransform(scrollYProgress, [0, 1], [0, 70])
 
   return (
-    <main ref={ref} className="h-[100vh] flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-28 sm:pt-36 bg-gradient-to-b from-[#00111E] to-[#1A3D59]">
-      <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.18)_0,rgba(0,163,255,0)_60%,rgba(0,163,255,0)_100%)]" />
+    <main ref={ref} className="h-[100vh] flex flex-col gap-4 items-center justify-center relative overflow-hidden pt-28 sm:pt-36">
+      {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.18)_0,rgba(0,163,255,0)_60%,rgba(0,163,255,0)_100%)]" />
       <div className='w-full h-[260px] absolute bottom-0 bg-gradient-to-b blur-xl from-[#00bfff00] to-[#29677e]'></div>
       <Image
         src="/assets/images/Ring.svg"
@@ -25,7 +25,7 @@ function MainScreen() {
         priority
         quality={100}
         className="absolute bottom-[-700px] scale-140 w-screen h-fit pointer-events-none"
-      />
+      /> */}
 
       {/* Hero content */}
       <div className="flex flex-col items-center gap-6 px-6 text-center w-full max-w-3xl mx-auto">
