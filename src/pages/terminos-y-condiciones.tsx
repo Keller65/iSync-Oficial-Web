@@ -130,7 +130,7 @@ function TerminosYCondiciones() {
 
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">9.5 Exención de Garantías</h3>
-                    <p className="text-red-600 font-semibold">EL SOFTWARE SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD"</p>
+                    <p className="text-red-600 font-semibold">EL SOFTWARE SE PROPORCIONA &quot;TAL CUAL&quot; Y &quot;SEGÚN DISPONIBILIDAD&quot;</p>
                     <p className="mt-2">iSync no ofrece garantías expresas o implícitas. El usuario asume todo riesgo derivado del uso.</p>
                   </div>
                 </div>

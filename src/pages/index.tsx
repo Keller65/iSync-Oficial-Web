@@ -3,7 +3,6 @@ import Beneficios from "../components/app/Beneficios";
 import MainScreen from "../components/app/MainScreen";
 import Navbar from "../components/app/Navbar";
 import FAQ from "../components/app/FAQ";
-import Sistemas from "@/components/app/Sistemas";
 import Grid from "@/components/app/Grid";
 
 export default function Home() {
