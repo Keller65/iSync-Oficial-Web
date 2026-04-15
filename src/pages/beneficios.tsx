@@ -3,6 +3,7 @@ import Navbar from "@/components/app/Navbar";
 import Head from "next/head";
 import { Poppins } from "next/font/google";
 import { BlurFade } from "@/components/ui/blur-fade";
+import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
@@ -209,12 +210,12 @@ export default function Beneficios() {
 					<p className="text-white/60 text-sm mb-8">
 						Contáctanos y un asesor te ayudará a configurar iSync para tu equipo.
 					</p>
-					<a
+					<Link
 						href="/contacto"
 						className="inline-flex items-center gap-2 bg-white text-[#1a3d59] px-7 py-3 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
 					>
 						Hablar con un asesor
-					</a>
+					</Link>
 				</div>
 			</section>
 		</>
