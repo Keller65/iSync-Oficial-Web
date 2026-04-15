@@ -1,7 +1,6 @@
-import { cn } from "@/lib/utils";
 import { Nata_Sans } from "next/font/google";
 import {
-  ShoppingCart, Users, ArrowRight, Globe, CloudArrowUp, Lock,
+  ShoppingCart, Globe, CloudArrowUp,
   FileText, ChartBar, MapPin, Package, Bell, Fingerprint, Printer, Cardholder, FilePdf
 } from "phosphor-react";
 
