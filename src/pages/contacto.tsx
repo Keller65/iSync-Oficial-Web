@@ -17,13 +17,11 @@ const contactSchema = z.object({
   name: z.string().min(3, 'Ingresa tu nombre completo'),
   email: z.string().email('Correo inválido'),
   companyName: z.string().min(2, 'Nombre de empresa requerido'),
-  rtn: z.string().min(8, 'RTN inválido'),
   phone: z.string().min(8, 'Teléfono inválido'),
   system: z.enum(['SAP B1', 'CONTPAQI']),
-  devices: z.boolean(),
-  licenses: z.number().min(1).optional(),
+  licenses: z.number().min(1),
   contractType: z.enum(['Mensual', 'Anual', 'Permanente']),
-  message: z.string().min(10, 'El mensaje es muy corto'),
+  message: z.string().optional(),
   location: z.string().min(3, 'Ubicación requerida'),
   server: z.enum(['Local', 'En la nube']),
   database: z.enum(['Hanna', 'SQL']),
@@ -41,7 +39,6 @@ export default function ContactPage() {
     resolver: zodResolver(contactSchema),
     defaultValues: {
       system: 'SAP B1',
-      devices: true,
       contractType: 'Mensual',
     },
   });
@@ -197,13 +194,13 @@ export default function ContactPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <Select label="Base de Datos" {...register('database')}>
-                  <option value="SAP B1">Hanna</option>
-                  <option value="CONTPAQI">SQL</option>
+                  <option value="Hanna">Hanna</option>
+                  <option value="SQL">SQL</option>
                 </Select>
 
                 <Select label="Servidor" {...register('server')}>
-                  <option value="SAP B1">Local</option>
-                  <option value="CONTPAQI">En la nube</option>
+                  <option value="Local">Local</option>
+                  <option value="En la nube">En la nube</option>
                 </Select>
               </div>
 
